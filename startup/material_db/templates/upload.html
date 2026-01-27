@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Upload Excel File</h3>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".xlsx">
+    <button>Upload</button>
+</form>
+
+{% endblock %}
