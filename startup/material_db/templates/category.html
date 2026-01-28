@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Category: {{ category }}</h2>
+
+<a href="/">Back to Home</a>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Force</th>
+        <th>Stress</th>
+        <th>Strain</th>
+        <th>Elasticity</th>
+    </tr>
+    {% for m in materials %}
+    <tr>
+        <td>{{ m[1] }}</td> <!-- Name -->
+        <td>{{ m[2] }}</td> <!-- Category -->
+        <td>{{ m[3] }}</td> <!-- Force -->
+        <td>{{ m[4] }}</td> <!-- Stress -->
+        <td>{{ m[5] }}</td> <!-- Strain -->
+        <td>{{ m[6] }}</td> <!-- Elasticity -->
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

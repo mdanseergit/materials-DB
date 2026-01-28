@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Material Database</h2>
+
+<!-- SEARCH -->
+<form method="get">
+    <input type="text" name="search" placeholder="Search material...">
+    <button type="submit">Search</button>
+</form>
+
+<!-- CATEGORY LINKS -->
+<div style="margin:10px 0;">
+    <a href="/category/Metals">Metals</a> |
+    <a href="/category/Polymers">Polymers</a> |
+    <a href="/category/Ceramics">Ceramics</a> |
+    <a href="/category/Composites">Composites</a> |
+    <a href="/logout">Logout</a>
+</div>
+
+<!-- UPLOAD EXCEL -->
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Upload Excel</button>
+</form>
+
+<!-- DOWNLOAD -->
+<a href="/download" class="btn btn-primary">Download Data as Excel</a>
+
+<!-- MATERIAL TABLE -->
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Force</th>
+        <th>Stress</th>
+        <th>Strain</th>
+        <th>Elasticity</th>
+    </tr>
+
+    {% for m in materials %}
+    <tr>
+        <td>{{ m[1] }}</td>
+        <td>{{ m[2] }}</td>
+        <td>{{ m[3] }}</td>
+        <td>{{ m[4] }}</td>
+        <td>{{ m[5] }}</td>
+        <td>{{ m[6] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
